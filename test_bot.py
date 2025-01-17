@@ -30,3 +30,20 @@ async def eskiz_login(email, password):
     print(response.text)
     token = response.json()['data']['token']
     return token
+
+
+
+async def send_sms(token, phone, verification_code):
+    url = "https://notify.eskiz.uz/api/message/sms/send"
+    payload = {'mobile_phone': phone,
+               'message': 'This is test from Eskiz',
+               'from': '4546',
+               'callback_url': 'http://0000.uz/test.php'}
+    files = []
+    headers = {'Authorization': f'Bearer {token}'}
+    response = requests.request("POST", url, headers=headers, data=payload, files=files)
+    if response.status_code != 200:
+        raise 'Что-то пошло не так'
+
+
+@dp.message()
