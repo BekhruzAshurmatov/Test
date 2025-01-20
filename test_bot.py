@@ -31,6 +31,5 @@ async def eskiz_login(email, password):
     token = response.json()['data']['token']
     return token
 
-    print('Hello World!')
-    print('Hello World!')
-    print('Hello World!')
+    print('Привет Мир!')
+    print('Привет Мир!')
