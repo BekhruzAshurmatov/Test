@@ -32,4 +32,3 @@ async def eskiz_login(email, password):
     return token
 
     print('Привет Мир!')
-    print('Hello World!')
